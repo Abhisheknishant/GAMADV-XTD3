@@ -2,7 +2,9 @@ if: tag IS blank
 os: linux
 language: python
 dist: xenial
-
+arch:
+    - amd64
+    - arm64
 env:
   global:
     - BUILD_PYTHON_VERSION=3.8.3
@@ -26,6 +28,12 @@ jobs:
       dist: focal
       language: shell
     - os: linux
+      arch: arm64
+      name: "Linux 64-bit Focal"
+      dist: focal
+      language: shell
+
+    - os: linux
       name: "Linux 64-bit Bionic"
       dist: bionic
       language: shell
@@ -40,6 +48,19 @@ jobs:
       dist: trusty
       language: shell
     - os: linux
+      arch: arm64
+      name: "Linux 64-bit Trusty"
+      dist: trusty
+      language: shell
+
+    - os: linux
+      name: "Linux 64-bit Precise"
+      dist: precise
+      language: shell
+      env:
+        - PATCHELF_VERSION=0.9
+    - os: linux
+      arch: arm64
       name: "Linux 64-bit Precise"
       dist: precise
       language: shell
